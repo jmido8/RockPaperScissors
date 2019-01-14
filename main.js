@@ -1,7 +1,9 @@
 
 //Save the score as 0
 let score = 0;
+let rounds = 0;
 
+//Get the opponents hand
 function getOpponentHand() {
     //Generate a random number between 1 - 3.
     let oppHand = ""; 
@@ -15,10 +17,10 @@ function getOpponentHand() {
     } else {
         oppHand = "scissors";
     }
-    console.log("Opponent hand: " + oppHand);
     return oppHand;
 }
 
+//Choose your own hand
 function chooseHand() {
     //Preps the clickable area to get your hand choice
     let choiceUI = document.querySelector(".playerContainer");
@@ -26,7 +28,6 @@ function chooseHand() {
     //Store the value of the button clicked
     choiceUI.addEventListener("click", function(event) {
         const THETARGET = event.target.value;
-        console.log(THETARGET);
 
         //Only starts the game if you clicked an appropriate button
         if (THETARGET === "rock" || THETARGET === "paper" || THETARGET === "scissors"){
@@ -36,8 +37,10 @@ function chooseHand() {
     
 }
 
+//check if your hand beats the opponents hand
 function checkIfWon(yourHand, oppHand) {
-    //check if your hand beats the opponents hand
+    
+    //Display what your opponent played
     const displayOpponentHand = function() {
         console.log("The opponent played: " + oppHand);
     }
@@ -46,67 +49,57 @@ function checkIfWon(yourHand, oppHand) {
     if (yourHand === "rock") {
         //tie
         if (oppHand === "rock") {
-            displayOpponentHand();
             console.log("It's a tie");
-            return;
         //lose
         } else if (oppHand === "paper") {
-            displayOpponentHand();
             console.log("You lose, sorry.");
-            return;
         //win
         } else {
-            displayOpponentHand();
             console.log("You win!");
             score +=1;
-            return;
         }
     //Outcomes for playing paper
     } else if (yourHand === "paper") {
         //tie
         if (oppHand === "paper") {
-            displayOpponentHand();
             console.log("It's a tie");
-            return;
         //lose
         } else if (oppHand === "scissors") {
-            displayOpponentHand();
             console.log("You lose, sorry.");
-            return;
         //win
         } else {
-            displayOpponentHand();
             console.log("You win!");
             score +=1;
-            return;
         } 
     //Outcomes for playing scissors
     } else {
         //tie
         if (oppHand === "scissors") {
-            displayOpponentHand();
             console.log("It's a tie");
-            return;
         //lose
         } else if (oppHand === "rock") {
-            displayOpponentHand();
             console.log("You lose, sorry.");
-            return;
         //win
         } else {
-            displayOpponentHand();
             console.log("You win!");
             score +=1;
-            return;
         } 
     }
+    rounds += 1;
+    displayOpponentHand();
+    console.log("You played: " + yourHand);
 }
 
-
+//Starts the game
 function playGame(hand) {
-    //play game by comparing your hand to opponent
+    
+    //Compares your hand to the opponents
     checkIfWon(hand, getOpponentHand());
-    console.log("Score: " + score);
+    
+    //Prints your updated score after the round.
+    console.log("Score: " + score + "/ " + rounds);
+    console.log("_______________________");
+    console.log(" ");
 }
 
 chooseHand();
