@@ -20,14 +20,20 @@ function getOpponentHand() {
 }
 
 function chooseHand() {
-    //Returns the value of your button choice 
-    let yourHand = document.querySelector(".playerContainer");
+    //Preps the clickable area to get your hand choice
+    let choiceUI = document.querySelector(".playerContainer");
 
-    yourHand.addEventListener("click", function(event) {
+    //Store the value of the button clicked
+    choiceUI.addEventListener("click", function(event) {
         const THETARGET = event.target.value;
         console.log(THETARGET);
-        return THETARGET;    
+
+        //Only starts the game if you clicked an appropriate button
+        if (THETARGET === "rock" || THETARGET === "paper" || THETARGET === "scissors"){
+        playGame(THETARGET);
+        } 
     });
+    
 }
 
 function checkIfWon(yourHand, oppHand) {
@@ -63,7 +69,7 @@ function checkIfWon(yourHand, oppHand) {
             console.log("It's a tie");
             return;
         //lose
-        } else if (oppHand === "paper") {
+        } else if (oppHand === "scissors") {
             displayOpponentHand();
             console.log("You lose, sorry.");
             return;
@@ -73,16 +79,34 @@ function checkIfWon(yourHand, oppHand) {
             console.log("You win!");
             score +=1;
             return;
-        }
-
+        } 
+    //Outcomes for playing scissors
+    } else {
+        //tie
+        if (oppHand === "scissors") {
+            displayOpponentHand();
+            console.log("It's a tie");
+            return;
+        //lose
+        } else if (oppHand === "rock") {
+            displayOpponentHand();
+            console.log("You lose, sorry.");
+            return;
+        //win
+        } else {
+            displayOpponentHand();
+            console.log("You win!");
+            score +=1;
+            return;
+        } 
     }
 }
 
-function playGame() {
-    //play game by comparing your hand to opponent
-    checkIfWon(chooseHand(), getOpponentHand());
 
+function playGame(hand) {
+    //play game by comparing your hand to opponent
+    checkIfWon(hand, getOpponentHand());
+    console.log("Score: " + score);
 }
 
-getOpponentHand();
 chooseHand();
