@@ -32,7 +32,11 @@ function chooseHand() {
         //Only starts the game if you clicked an appropriate button
         if (THETARGET === "rock" || THETARGET === "paper" || THETARGET === "scissors"){
         playGame(THETARGET);
-        } 
+        } else if (THETARGET === "reset") {
+            score = 0;
+            rounds = 0;
+            console.clear();
+        }
     });
     
 }
