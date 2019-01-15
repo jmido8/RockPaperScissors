@@ -1,4 +1,5 @@
 # RockPaperScissors
 Rock paper scissors game
 
-Check gameDesign pdf for layout design
+My first JS web app
+www.byjasonm.com
