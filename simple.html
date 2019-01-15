@@ -4,16 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css" type="text/css">
     <title>Document</title>
 </head>
 <body>
     
-<div class="playerContainer">
-    <button value="rock" class="rock">Rock</button>
-    <button value="paper" class="paper">Paper</button>
-    <button value="scissors" class="scissors">Scissors</button>
-    <button value="reset">Reset</button>
-</div>
+    <div class="container">
+        <h2 class="name player1">Player</h2>
+        <div class="playerHand">
+            <img src="https://images.pexels.com/photos/355863/pexels-photo-355863.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="rock" class="pic">
+        </div>
+        <h2 class="name opponent">Opponent</h2>        
+        <div class="opponentHand">
+            <img src="https://images.pexels.com/photos/355863/pexels-photo-355863.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="rock" class="pic">
+        </div>
+    
+        <h2 class="score">0 / 0</h2>
+        
+        <h2 class="results">---</h2>
+        
+        <div class="buttonContainer">
+            <button value="rock" class="rock">Rock</button>
+            <button value="paper" class="paper">Paper</button>
+            <button value="scissors" class="scissors">Scissors</button>
+            <button value="reset">Reset</button>
+        </div>
+    </div>
+
 
 
     <script src="main.js"></script>
