@@ -1,6 +1,6 @@
     
 //Preps the clickable area to get your hand choice
-export const choiceUI = document.querySelector(".container");
+export const choiceUI = document.querySelector(".buttonContainer");
 
 //Selects the score from html
 export const scoreUI = document.querySelector(".score");
