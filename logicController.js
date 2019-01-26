@@ -44,6 +44,7 @@ function checkIfWon(yourHand, oppHand) {
 
         //win
         } else {
+            // debugger
             vars.results = "Win";
             console.log("You win!");
             vars.score +=1;
@@ -61,6 +62,7 @@ function checkIfWon(yourHand, oppHand) {
 
         //win
         } else {
+            // debugger
             vars.results = "Win";
             console.log("You win!");
             vars.score +=1;
@@ -79,6 +81,7 @@ function checkIfWon(yourHand, oppHand) {
 
         //win
         } else {
+            // debugger
             vars.results = "Win";
             console.log("You win!");
             vars.score +=1;
@@ -89,7 +92,9 @@ function checkIfWon(yourHand, oppHand) {
     console.log("You played: " + yourHand);
     console.log("The opponent played: " + oppHand);
 
-    //Update results UI
+    //Update results UI    
+    ui.changeResultColor();
+
     ui.updateResult();
 }
 

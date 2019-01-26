@@ -47,15 +47,20 @@ export function uiReset(target) {
         vars.results = "New Game";
         scoreUI.innerHTML = "0 | 0";
         resultUI.innerHTML = vars.results; 
+        changeResultColor();
     }
 }
     
-
-
-function UIController(target1, target2) {
-    updateMyPic(target1);
-    updateOpponentPic(target2);
-    uiReset(target1);
-    updateResult();
-    updateScoreUI();
+//Toggle results color green
+export function changeResultColor() {
+    if (vars.results === "Win") {
+        resultUI.classList.remove("resultsLose");
+        resultUI.classList.add("resultsWin");
+    } else if (vars.results === "Lose") {
+        resultUI.classList.remove("resultsWin");
+        resultUI.classList.add("resultsLose");
+    } else if (vars.results === "Tie" || vars.results === "New Game") {
+        resultUI.classList.remove("resultsWin");
+        resultUI.classList.remove("resultsLose");
+    }
 }

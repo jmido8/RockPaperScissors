@@ -71,3 +71,11 @@ button:hover {
     top: 2px;
     background-color:  rgb(145, 145, 185);
 }
+
+.resultsWin {
+    color: green;
+}
+
+.resultsLose {
+    color: red;
+}
